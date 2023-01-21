@@ -3,4 +3,7 @@
 /*this is the printing function*/
 int _printf(const char *format, ...);
 
+/* putchar function for printing*/
+int _putchar(char c);
+
 #endif
