@@ -14,12 +14,12 @@ int _printf(const char *format, ...)
 	const char *scan;
 	unsigned int i;
 	char *s;
-
 	va_list list;
+
 	va_start(list, format);
 
 	/*This for loop scans the (format) for the '%' character */
-	for(scan = format; *scan != '\0'; scan++)
+	for (scan = format; *scan != '\0'; scan++)
 	{
 		while (*scan != '%')
 		{
@@ -30,32 +30,37 @@ int _printf(const char *format, ...)
 		scan++;
 
 		/*This switch statement check each character found after the '%' character */
-		switch(*scan)
+		switch (*scan)
 		{
-			case 'c' : i = va_arg(list,int);
-				   _putchar(i);
-				   break;
+			case 'c':
+				i = va_arg(list, int);
+				_putchar(i);
+				break;
 
-			case 'd' : i = va_arg(list,int);
-				   if(i < 0)
-				   {
-					   i = -i;
-					   _putchar('-');
-				   }
-				   _puts(convert(i,10));
-				   break;
+			case 'd':
+				i = va_arg(list, int);
+				if (i < 0)
+				{
+					i = -i;
+					_putchar('-');
+				}
+				_puts(convert(i, 10));
+				break;
 
-			case 'o' : i = va_arg(list,unsigned int);
-				   _puts(convert(i,8));
-				   break;
+			case 'o':
+				i = va_arg(list, unsigned int);
+				_puts(convert(i, 8));
+				break;
 
-			case 's' : s = va_arg(list,char *);
-				   _puts(s);
-				   break;
+			case 's':
+				s = va_arg(list, char *);
+				_puts(s);
+				break;
 
-			case 'x' : i = va_arg(list, unsigned int);
-				   _puts(convert(i,16));
-				   break;
+			case 'x':
+				i = va_arg(list, unsigned int);
+				_puts(convert(i, 16));
+				break;
 		}
 	}
 
@@ -80,11 +85,10 @@ char *convert(unsigned int num, int base)
 	ptr = &buffer[49];
 	*ptr = '0';
 
-	do
-	{
+	do {
 		*--ptr = Representation[num % base];
 		num /= base;
-	}while (nm != 0);
+	} while (nm != 0);
 
 	return (ptr);
 }
