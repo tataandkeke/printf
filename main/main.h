@@ -30,6 +30,6 @@ int print_char(va_list);
 int print_string(va_list);
 int print_percent(va_list);
 int print_integer(va_list);
-int print_number(va_list);
+int print_numbers(va_list);
 
 #endif
