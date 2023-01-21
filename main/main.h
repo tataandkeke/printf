@@ -7,6 +7,4 @@ int _printf(const char *format, ...);
 int _putchar(char c);
 int _puts(char *str);
 
-/*convert function converts numbers to different formats*/
-char *convert(unsigned int, int);
 #endif
