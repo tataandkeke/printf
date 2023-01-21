@@ -61,6 +61,11 @@ int _printf(const char *format, ...)
 				i = va_arg(list, unsigned int);
 				_puts(convert(i, 16));
 				break;
+
+			case '%':
+				s = va_arg(list, char *);
+				_puts(s);
+				break;
 		}
 	}
 
