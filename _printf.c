@@ -18,6 +18,7 @@ int _printf(const char *format, ...)
 	va_list list;
 	va_start(list, format);
 
+	/*This for loop scans the (format) for the '%' character */
 	for(scan = format; *scan != '\0'; scan++)
 	{
 		while (*scan != '%')
@@ -28,6 +29,7 @@ int _printf(const char *format, ...)
 
 		scan++;
 
+		/*This switch statement check each character found after the '%' character */
 		switch(*scan)
 		{
 			case 'c' : i = va_arg(list,int);
@@ -58,5 +60,31 @@ int _printf(const char *format, ...)
 	}
 
 	va_end(list);
+	return (0);
 
+}
+
+/**
+ * convert - this function convert int to dex, oct and others
+ * @num: number variable
+ * @base: base number
+ * Return: return pointer
+ */
+
+char *convert(unsigned int num, int base)
+{
+	static char Representation[] = "0123456789ABCDEF";
+	static char buffer[50];
+	char *ptr;
+
+	ptr = &buffer[49];
+	*ptr = '0';
+
+	do
+	{
+		*--ptr = Representation[num % base];
+		num /= base;
+	}while (nm != 0);
+
+	return (ptr);
 }
