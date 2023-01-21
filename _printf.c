@@ -12,7 +12,7 @@
 int _printf(const char *format, ...)
 {
 	const char *scan;
-	unsigned int i;
+	int i;
 	char *s;
 	va_list list;
 
@@ -93,7 +93,7 @@ char *convert(unsigned int num, int base)
 	do {
 		*--ptr = Representation[num % base];
 		num /= base;
-	} while (nm != 0);
+	} while (num != 0);
 
 	return (ptr);
 }
